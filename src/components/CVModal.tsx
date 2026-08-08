@@ -4,8 +4,7 @@
  */
 
 import React, { useRef } from 'react';
-import { X, Printer, Download, MapPin, Mail, Phone, GraduationCap, Building, Briefcase, Award, CheckSquare, Ruler } from 'lucide-react';
-import { timelineData, skillsData, certificationsData } from '../data';
+import { X, Printer, Phone, Mail, Linkedin, MapPin } from 'lucide-react';
 
 interface CVModalProps {
   isOpen: boolean;
@@ -19,29 +18,29 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
 
   const handlePrint = () => {
     const printContent = printAreaRef.current?.innerHTML;
-    const originalContent = document.body.innerHTML;
-
     if (printContent) {
-      // Create an elegant print-only style setup
       const style = document.createElement('style');
       style.innerHTML = `
         @media print {
           body {
             background: white !important;
             color: black !important;
-            font-family: sans-serif;
-            padding: 20px;
+            font-family: "Times New Roman", Times, Georgia, serif !important;
+            padding: 0 !important;
+            margin: 15mm 20mm !important;
           }
           .no-print {
             display: none !important;
           }
-          .print-border {
-            border: 1px solid #000 !important;
+          #printable-cv-sheet {
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: transparent !important;
           }
-          .badge {
-            border: 1px solid #333 !important;
-            background: none !important;
-            color: black !important;
+          .section-divider {
+            border-bottom: 1.5px solid #000000 !important;
           }
         }
       `;
@@ -65,9 +64,8 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
         {/* Top Control Bar */}
         <div className="bg-[#0F172A] text-white p-4 border-b border-slate-800 flex justify-between items-center no-print">
           <div className="flex items-center space-x-2">
-            <Ruler className="w-5 h-5 text-[#38BDF8]" />
             <span className="font-mono text-xs font-bold tracking-widest text-[#38BDF8] uppercase">
-              ARCHITECTURAL CV GENERATOR v1.2
+              OFFICIAL PRINTABLE CV
             </span>
           </div>
           <div className="flex items-center space-x-3">
@@ -95,208 +93,173 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
           {/* Printable White Sheet */}
           <div 
             ref={printAreaRef}
-            className="bg-white border border-[#CBD5E1] rounded-md p-6 sm:p-10 shadow-lg max-w-3xl mx-auto text-[#0F172A] font-sans print-border"
-            style={{ minHeight: '297mm' }} // A4 height ratio
+            className="bg-white border border-[#CBD5E1] rounded-md p-6 sm:p-12 shadow-lg max-w-3xl mx-auto text-[#0F172A] print-border font-serif"
+            style={{ 
+              minHeight: '297mm',
+              fontFamily: '"Times New Roman", Times, Georgia, serif'
+            }}
             id="printable-cv-sheet"
           >
             
-            {/* CV Title Block / Blueprint Header */}
-            <div className="border-4 border-double border-[#0F172A] p-4 mb-6 relative">
-              {/* Corner markings */}
-              <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border border-[#0F172A]"></div>
-              <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-white border border-[#0F172A]"></div>
-              <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-white border border-[#0F172A]"></div>
-              <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border border-[#0F172A]"></div>
-
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight leading-none text-[#0F172A]">
-                    DHANYA BOTLA
-                  </h1>
-                  <p className="text-xs font-mono font-bold text-[#2563EB] tracking-wider uppercase mt-1">
-                    Civil Engineering Undergraduate & BIM / CAD Specialist
-                  </p>
-                </div>
-                
-                <div className="text-left sm:text-right font-mono text-[10px] text-[#475569] space-y-0.5 border-t sm:border-t-0 sm:border-l border-slate-200 pt-2 sm:pt-0 sm:pl-4">
-                  <div className="flex items-center sm:justify-end gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
-                    <span>Surampalem, AP, India</span>
-                  </div>
-                  <div className="flex items-center sm:justify-end gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-[#2563EB]" />
-                    <span>dhanyabotla@gmail.com</span>
-                  </div>
-                  <div className="flex items-center sm:justify-end gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-[#2563EB]" />
-                    <span>+91 9390948557</span>
-                  </div>
-                </div>
+            {/* Header section exactly as the PDF */}
+            <div className="text-center mb-6">
+              <h1 className="text-4xl font-extrabold tracking-wide uppercase text-slate-900 mb-1 leading-none">
+                DHANYA BOTLA
+              </h1>
+              <p className="text-[15px] font-medium text-slate-700 italic mb-3">
+                Civil Engineering Undergraduate
+              </p>
+              
+              <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[13px] text-slate-800 mb-1">
+                <span className="flex items-center gap-1 font-sans">
+                  <Phone className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
+                  <span>+91 9390948557</span>
+                </span>
+                <span className="flex items-center gap-1 font-sans">
+                  <Mail className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
+                  <span>dhanyabotla@gmail.com</span>
+                </span>
+                <span className="flex items-center gap-1 font-sans">
+                  <Linkedin className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
+                  <span>LinkedIn</span>
+                </span>
+              </div>
+              
+              <div className="text-[13px] text-slate-800 flex justify-center items-center gap-1 mt-1">
+                <MapPin className="w-3.5 h-3.5 text-slate-800" />
+                <span>Surampalem, Gandepalli, Andhra Pradesh</span>
               </div>
             </div>
 
             {/* Professional Summary */}
-            <div className="mb-6">
-              <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-2">
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
                 Professional Summary
               </h2>
-              <p className="text-xs sm:text-sm text-[#334155] leading-relaxed text-justify">
-                Civil Engineering undergraduate with strong AutoCAD skills and hands-on layout approval experience. 
-                Knowledgeable in Building Information Modeling (BIM), Civil 3D, Revit, and ETABS. 
-                Passionate about structural infrastructure development, town planning regulations, and advanced architectural modeling.
+              <p className="text-[13.5px] text-slate-800 leading-relaxed text-justify">
+                Civil Engineering undergraduate with strong AutoCAD skills and hands-on layout approval experience.
+                Knowledgeable in BIM, Civil 3D, Revit, and ETABS. Passionate about infrastructure development and
+                engineering design.
               </p>
             </div>
 
-            {/* Two-Column Grid for Experience & Education */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
-              
-              {/* Left Column: Education & Experience (md: col-span-7) */}
-              <div className="md:col-span-7 space-y-6">
-                
-                {/* Experience section */}
-                <div>
-                  <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-3">
-                    Practical Experience
-                  </h2>
-                  
-                  {timelineData.filter(e => e.type === 'experience').map((exp) => (
-                    <div key={exp.id} className="space-y-1.5">
-                      <div className="flex justify-between items-start text-xs font-bold text-[#0F172A]">
-                        <span className="text-sm font-extrabold">{exp.title}</span>
-                        <span className="font-mono text-[10px] text-[#2563EB]">{exp.period}</span>
-                      </div>
-                      <div className="text-[11px] font-semibold text-[#475569] leading-none">
-                        {exp.subtitle} • {exp.institution}
-                      </div>
-                      <ul className="list-disc pl-4 space-y-1 text-xs text-[#334155] pt-1">
-                        {exp.description.map((desc, idx) => (
-                          <li key={idx} className="leading-relaxed">{desc}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Academic Projects */}
-                <div>
-                  <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-3">
-                    Key Architectural Projects
-                  </h2>
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between items-start text-xs font-bold text-[#0F172A]">
-                        <span className="text-sm font-extrabold">Planning & Design of G+1 Commercial Hotel</span>
-                        <span className="font-mono text-[10px] text-[#2563EB]">Ongoing</span>
-                      </div>
-                      <div className="text-[11px] font-semibold text-[#475569] mt-0.5">
-                        L&T BIM Internship Initiative
-                      </div>
-                      <p className="text-xs text-[#334155] leading-relaxed mt-1 text-justify">
-                        Designed a complete G+1 hotel using AutoCAD and Revit. Prepared detailed column layout schedules, 2D floor framing arrangements, and electrical-plumbing vertical shafts adhering strictly to Indian National Building Codes (NBC 2016).
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Right Column: Education, Skills, and Languages (md: col-span-5) */}
-              <div className="md:col-span-5 space-y-6">
-                
-                {/* Education section */}
-                <div>
-                  <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-3">
-                    Academic Education
-                  </h2>
-                  <div className="space-y-3.5">
-                    {timelineData.filter(e => e.type === 'education').map((edu) => (
-                      <div key={edu.id} className="text-xs">
-                        <div className="flex justify-between items-start font-bold text-[#0F172A]">
-                          <span className="font-extrabold leading-tight">{edu.title}</span>
-                          <span className="font-mono text-[9px] text-[#2563EB] shrink-0">{edu.period}</span>
-                        </div>
-                        <p className="text-[10px] text-[#475569] font-medium leading-tight mt-0.5">{edu.subtitle}</p>
-                        {edu.grade && (
-                          <span className="inline-block mt-1 font-mono text-[10px] font-bold bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-[#166534]">
-                            {edu.grade}
-                          </span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Technical Skills Matrix */}
-                <div>
-                  <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-3">
-                    Technical Skill Index
-                  </h2>
-                  <div className="space-y-2.5">
-                    {skillsData.map((category) => (
-                      <div key={category.title} className="text-xs">
-                        <span className="font-bold text-[#0F172A] text-[11px] block mb-1">
-                          {category.title}
-                        </span>
-                        <div className="flex flex-wrap gap-1">
-                          {category.skills.map((skill) => (
-                            <span 
-                              key={skill}
-                              className="text-[9px] font-mono font-bold bg-slate-50 border border-slate-200 px-1.5 py-0.5 rounded text-[#334155] badge"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Certifications and Ribbons */}
-            <div className="mb-6">
-              <h2 className="text-xs font-mono font-bold text-[#0F172A] tracking-widest uppercase border-b-2 border-[#0F172A] pb-1 mb-3">
-                Professional Certifications
+            {/* Education Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Education
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                {certificationsData.map((cert) => (
-                  <div key={cert.id} className="border border-slate-200 rounded p-2.5 bg-slate-50">
-                    <div className="flex justify-between items-center font-bold text-[#0F172A]">
-                      <span className="text-[11px] font-extrabold">{cert.title}</span>
-                      <span className="font-mono text-[9px] text-[#2563EB]">{cert.year}</span>
-                    </div>
-                    <p className="text-[10px] text-[#475569] mt-0.5">{cert.issuer}</p>
+              <div className="space-y-3.5 text-[13.5px] text-slate-800">
+                <div className="flex justify-between items-start">
+                  <span className="w-24 shrink-0 font-medium">2023–2027</span>
+                  <div className="flex-grow pr-4">
+                    <span className="font-bold text-slate-900">B.Tech Civil Engineering</span>, Aditya College of Engineering and Technology,
+                    <div className="text-[12.5px] text-slate-700 italic">Aditya University</div>
                   </div>
-                ))}
+                  <span className="font-bold text-right shrink-0">CGPA 7.83</span>
+                </div>
+
+                <div className="flex justify-between items-start">
+                  <span className="w-24 shrink-0 font-medium">2021–2023</span>
+                  <div className="flex-grow pr-4">
+                    <span className="font-bold text-slate-900">Intermediate</span>, KSN Junior College (BIEAP)
+                  </div>
+                  <span className="font-bold text-right shrink-0">82.1%</span>
+                </div>
+
+                <div className="flex justify-between items-start">
+                  <span className="w-24 shrink-0 font-medium">2020–2021</span>
+                  <div className="flex-grow pr-4">
+                    <span className="font-bold text-slate-900">SSC</span>, Sri Vivekananda Talent School
+                  </div>
+                  <span className="font-bold text-right shrink-0">574 Marks (95.6%)</span>
+                </div>
               </div>
             </div>
 
-            {/* Achievements, Personal, and Footer */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[#E2E8F0]">
-              <div>
-                <h3 className="text-[10px] font-mono font-bold text-[#64748B] uppercase tracking-wider block mb-1.5">
-                  Core Achievements & Co-Curriculars:
-                </h3>
-                <p className="text-xs text-[#334155] leading-relaxed">
-                  Paper Presentation, National Service Scheme (NSS), Hackathon finalist, Technical Civil Competitions, and major college technical events.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-[10px] font-mono font-bold text-[#64748B] uppercase tracking-wider block mb-1.5">
-                  Languages spoken:
-                </h3>
-                <p className="text-xs text-[#334155] leading-relaxed font-semibold">
-                  English (Professional proficiency), Telugu (Native speaker).
-                </p>
+            {/* Internship Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Internship
+              </h2>
+              <div className="text-[13.5px] text-slate-800">
+                <div className="flex justify-between items-start mb-1">
+                  <span className="font-bold text-slate-900">Civil Engineering Intern, RUDA</span>
+                  <span className="font-medium text-slate-800">June – July 2025 (2 Months)</span>
+                </div>
+                <ul className="list-disc pl-5 space-y-1 mt-1">
+                  <li>Prepare and modify AutoCAD layouts.</li>
+                  <li>Review engineering drawings.</li>
+                  <li>Assist layout approval documentation.</li>
+                  <li>Support planning verification.</li>
+                </ul>
               </div>
             </div>
 
-            {/* Print Footer Watermark */}
-            <div className="mt-8 pt-4 border-t-2 border-dashed border-[#E2E8F0] text-center text-[9px] font-mono text-[#94A3B8]">
-              AUTHENTICATED DIGITAL ARCHITECTURAL RESUME • PORTFOLIO OF DHANYA BOTLA © 2026
+            {/* Academic Project Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Academic Project
+              </h2>
+              <div className="text-[13.5px] text-slate-800">
+                <h3 className="font-bold text-slate-900 mb-1">
+                  Planning and Design of G+1 Commercial Hotel Building (L&T BIM Internship)
+                </h3>
+                <ul className="list-disc pl-5 space-y-1 mt-1">
+                  <li>Designed complete G+1 hotel using AutoCAD.</li>
+                  <li>Prepared plans and layouts.</li>
+                  <li>Applied BIM concepts and engineering standards.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Technical Skills Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Technical Skills
+              </h2>
+              <p className="text-[13.5px] text-slate-800 leading-relaxed">
+                AutoCAD, Civil 3D, Revit, ETABS, ArcGIS Pro, BIM, Surveying, Total Station, Quantity Estimation, Building Planning, MS Office.
+              </p>
+            </div>
+
+            {/* Certifications Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Certifications
+              </h2>
+              <p className="text-[13.5px] text-slate-800 leading-relaxed">
+                AutoCAD 2026; Revit 2022; ArcGIS Pro; Building Information Modeling (L&T EduTech); Construction Management; Project Management Foundations: Risk.
+              </p>
+            </div>
+
+            {/* Achievements Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Achievements
+              </h2>
+              <p className="text-[13.5px] text-slate-800 leading-relaxed">
+                Paper Presentation, NSS, Hackathon, Technical Competitions, College Events.
+              </p>
+            </div>
+
+            {/* Languages Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Languages
+              </h2>
+              <p className="text-[13.5px] text-slate-800 leading-relaxed">
+                English, Telugu.
+              </p>
+            </div>
+
+            {/* Hobbies Section */}
+            <div className="mb-5">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
+                Hobbies
+              </h2>
+              <p className="text-[13.5px] text-slate-800 leading-relaxed">
+                Reading, Music, Learning New Technologies.
+              </p>
             </div>
 
           </div>
@@ -306,7 +269,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
         {/* Modal Bottom action block */}
         <div className="bg-[#F8FAFC] border-t border-[#E2E8F0] p-4 flex justify-between items-center no-print">
           <span className="text-[10px] text-[#64748B] font-mono font-bold uppercase">
-            A4 Standard Printable Scale Layout
+            Official Academic CV Standard Layout
           </span>
           <button
             onClick={onClose}

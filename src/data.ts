@@ -126,7 +126,7 @@ export const timelineData: TimelineEvent[] = [
     title: 'Civil Engineering Intern',
     subtitle: 'Rajahmundry Urban Development Authority (RUDA)',
     institution: 'RUDA Town Planning Office',
-    period: 'Internship Period',
+    period: 'June – July (2 Months)',
     description: [
       'Prepared and modified detailed community layout blueprints in AutoCAD.',
       'Reviewed structural and architectural drawings submitted for official municipal approvals.',
@@ -172,9 +172,9 @@ export const timelineData: TimelineEvent[] = [
     institution: 'Andhra Pradesh, India',
     period: '2020 – 2021',
     description: [
-      'Completed Class X general education board examinations.'
+      'Completed Class X general education board examinations with 574 marks.'
     ],
-    grade: 'CGPA: 10.0 / 10.0'
+    grade: 'Percentage: 95.6%'
   }
 ];
 
@@ -228,11 +228,11 @@ export const certificationsData: Certification[] = [
   },
   {
     id: 'cert-4',
-    title: 'BIM (Building Information Modeling) Foundations',
-    issuer: 'L&T / Academic Portal',
+    title: 'Building Information Modeling',
+    issuer: 'L&T EduTech',
     year: '2025',
-    description: 'Collaborative cloud workflows, level of development (LOD), architectural coordination, and BIM maturity phases.',
-    skillsLearned: ['Clash detection principles', 'BIM LOD standards', 'Common Data Environments (CDE)']
+    description: 'Successfully completed the course in Building Information Modeling with First Class (A+) offered by the CollegeConnect Programme of L&T EduTech during the period 30 Jul 2025 to 20 Nov 2025.',
+    skillsLearned: ['BIM Cloud Work-sharing', 'Clash Detection', 'Level of Development (LOD) Standards', 'Common Data Environments (CDE)']
   },
   {
     id: 'cert-5',
