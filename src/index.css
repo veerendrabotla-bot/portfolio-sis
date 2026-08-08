@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 @media print {
+  @page {
+    size: auto;
+    margin: 0mm; /* Removes default browser headers, footers, and timestamps */
+  }
+
   /* Prevent color stripping on modern browsers */
   * {
     -webkit-print-color-adjust: exact !important;
@@ -58,12 +63,13 @@
   #printable-cv-sheet {
     border: none !important;
     box-shadow: none !important;
-    padding: 10mm 15mm !important;
+    padding: 15mm 20mm !important; /* Elegant page margin inside the physical page */
     margin: 0 !important;
     background: transparent !important;
     width: 100% !important;
     max-width: 100% !important;
     min-height: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .section-divider {
