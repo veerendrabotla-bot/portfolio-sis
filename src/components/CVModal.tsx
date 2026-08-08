@@ -17,37 +17,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
   if (!isOpen) return null;
 
   const handlePrint = () => {
-    const printContent = printAreaRef.current?.innerHTML;
-    if (printContent) {
-      const style = document.createElement('style');
-      style.innerHTML = `
-        @media print {
-          body {
-            background: white !important;
-            color: black !important;
-            font-family: "Times New Roman", Times, Georgia, serif !important;
-            padding: 0 !important;
-            margin: 15mm 20mm !important;
-          }
-          .no-print {
-            display: none !important;
-          }
-          #printable-cv-sheet {
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            background: transparent !important;
-          }
-          .section-divider {
-            border-bottom: 1.5px solid #000000 !important;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-      window.print();
-      document.head.removeChild(style);
-    }
+    window.print();
   };
 
   return (
