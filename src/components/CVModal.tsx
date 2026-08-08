@@ -166,33 +166,50 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
                 Internship
               </h2>
               <div className="text-[13.5px] text-slate-800">
-                <div className="flex justify-between items-start mb-1">
-                  <span className="font-bold text-slate-900">Civil Engineering Intern, RUDA</span>
-                  <span className="font-medium text-slate-800">June – July 2026 (2 Months)</span>
+                <div>
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-900">Civil Engineering Intern, RUDA</span>
+                    <span className="font-medium text-slate-800">June – July 2026 (2 Months)</span>
+                  </div>
+                  <ul className="list-disc pl-5 space-y-1 mt-1 text-justify">
+                    <li>Prepare and modify AutoCAD layouts.</li>
+                    <li>Review engineering drawings.</li>
+                    <li>Assist layout approval documentation.</li>
+                    <li>Support planning verification.</li>
+                  </ul>
                 </div>
-                <ul className="list-disc pl-5 space-y-1 mt-1">
-                  <li>Prepare and modify AutoCAD layouts.</li>
-                  <li>Review engineering drawings.</li>
-                  <li>Assist layout approval documentation.</li>
-                  <li>Support planning verification.</li>
-                </ul>
               </div>
             </div>
 
-            {/* Academic Project Section */}
+            {/* Academic Projects Section */}
             <div className="mb-5">
               <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
-                Academic Project
+                Academic Projects
               </h2>
-              <div className="text-[13.5px] text-slate-800">
-                <h3 className="font-bold text-slate-900 mb-1">
-                  Planning and Design of G+1 Commercial Hotel Building (L&T BIM Internship)
-                </h3>
-                <ul className="list-disc pl-5 space-y-1 mt-1">
-                  <li>Designed complete G+1 hotel using AutoCAD.</li>
-                  <li>Prepared plans and layouts.</li>
-                  <li>Applied BIM concepts and engineering standards.</li>
-                </ul>
+              <div className="text-[13.5px] text-slate-800 space-y-4">
+                <div>
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-900">Building Information Modeling (BIM) Course & Project</span>
+                    <span className="font-medium text-slate-800">July 30 – Nov 20, 2025</span>
+                  </div>
+                  <div className="text-[12.5px] text-slate-700 italic mb-1">L&T EduTech (CollegeConnect Programme)</div>
+                  <ul className="list-disc pl-5 space-y-1 mt-1 text-justify">
+                    <li>Successfully completed professional course & program in Building Information Modeling (BIM) with First Class (A+) Grade.</li>
+                    <li>Acquired skills in 3D BIM coordination, clash detection, and Level of Development (LOD) standards.</li>
+                    <li>Worked with collaborative cloud workflows and Common Data Environments (CDE).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-900">Planning and Design of G+1 Commercial Hotel Building</span>
+                  </div>
+                  <ul className="list-disc pl-5 space-y-1 mt-1 text-justify">
+                    <li>Designed complete G+1 hotel applying AutoCAD and Revit BIM software.</li>
+                    <li>Prepared multi-view floor plans, elevations, sections, and mechanical-electrical-plumbing (MEP) routing paths.</li>
+                    <li>Applied IS 456:2000 and National Building Code of India engineering and safety guidelines.</li>
+                  </ul>
+                </div>
               </div>
             </div>
 

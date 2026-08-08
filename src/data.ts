@@ -139,6 +139,23 @@ export const timelineData: TimelineEvent[] = [
     ]
   },
   {
+    id: 'timeline-bim-internship',
+    type: 'experience',
+    title: 'Building Information Modeling (BIM) Intern',
+    subtitle: 'L&T EduTech (CollegeConnect Programme)',
+    institution: 'L&T EduTech, CollegeConnect',
+    period: 'July 30 – Nov 20, 2025',
+    description: [
+      'Successfully completed the official course and practical internship program in Building Information Modeling (BIM).',
+      'Applied collaborative cloud work-sharing, architectural coordination, and Level of Development (LOD) standards.',
+      'Completed professional-grade training in 3D BIM coordination, clash detection, and Common Data Environments (CDE).'
+    ],
+    highlights: [
+      'Earned First Class (A+) Grade certified by L&T EduTech CollegeConnect.',
+      'Developed full competence in BIM cloud workflows and automated clash resolution pipelines.'
+    ]
+  },
+  {
     id: 'timeline-2',
     type: 'education',
     title: 'B.Tech in Civil Engineering',
