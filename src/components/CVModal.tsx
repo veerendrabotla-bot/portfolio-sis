@@ -4,7 +4,7 @@
  */
 
 import React, { useRef } from 'react';
-import { X, Printer, Phone, Mail, Linkedin, MapPin } from 'lucide-react';
+import { X, Printer, Phone, Mail, Linkedin, MapPin, Globe } from 'lucide-react';
 
 interface CVModalProps {
   isOpen: boolean;
@@ -80,7 +80,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
                 Civil Engineering Undergraduate
               </p>
               
-              <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[13px] text-slate-800 mb-1">
+              <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[12px] sm:text-[13px] text-slate-800 mb-1">
                 <span className="flex items-center gap-1 font-sans">
                   <Phone className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
                   <span>+91 9390948557</span>
@@ -89,10 +89,24 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
                   <Mail className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
                   <span>dhanyabotla@gmail.com</span>
                 </span>
-                <span className="flex items-center gap-1 font-sans">
+                <a 
+                  href="https://www.linkedin.com/in/dhanya-botla" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-1 font-sans text-slate-800 hover:text-[#2563EB] hover:underline"
+                >
                   <Linkedin className="w-3.5 h-3.5 text-slate-800" fill="currentColor" />
-                  <span>LinkedIn</span>
-                </span>
+                  <span>linkedin.com/in/dhanya-botla</span>
+                </a>
+                <a 
+                  href="https://portfolio-sis-teal.vercel.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-1 font-sans text-slate-800 hover:text-[#2563EB] hover:underline"
+                >
+                  <Globe className="w-3.5 h-3.5 text-slate-800" />
+                  <span>portfolio-sis-teal.vercel.app</span>
+                </a>
               </div>
               
               <div className="text-[13px] text-slate-800 flex justify-center items-center gap-1 mt-1">
@@ -154,7 +168,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
               <div className="text-[13.5px] text-slate-800">
                 <div className="flex justify-between items-start mb-1">
                   <span className="font-bold text-slate-900">Civil Engineering Intern, RUDA</span>
-                  <span className="font-medium text-slate-800">June – July 2025 (2 Months)</span>
+                  <span className="font-medium text-slate-800">June – July 2026 (2 Months)</span>
                 </div>
                 <ul className="list-disc pl-5 space-y-1 mt-1">
                   <li>Prepare and modify AutoCAD layouts.</li>

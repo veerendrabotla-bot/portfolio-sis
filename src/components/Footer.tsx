@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Mail, Phone, Copy, Check, BookOpen, Music, Cpu, Sparkles, Send } from 'lucide-react';
+import { Mail, Phone, Copy, Check, BookOpen, Music, Cpu, Sparkles, Send, Linkedin, Globe } from 'lucide-react';
 
 interface FooterProps {
   isContactOpen: boolean;
@@ -114,7 +114,7 @@ export default function Footer({ isContactOpen, onContactClose }: FooterProps) {
 
               <button
                 onClick={() => copyToClipboard(phoneVal, 'phone')}
-                className="w-full flex items-center justify-between p-2.5 bg-slate-900 border border-slate-800 rounded-lg hover:border-slate-700 hover:bg-slate-800/50 cursor-pointer transition-all text-xs"
+                className="w-full flex items-center justify-between p-2.5 bg-slate-900 border border-slate-800 rounded-lg hover:border-slate-700 hover:bg-slate-800/50 cursor-pointer transition-all text-xs mb-1"
               >
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-[#0EA5E9]" />
@@ -126,6 +126,32 @@ export default function Footer({ isContactOpen, onContactClose }: FooterProps) {
                   <Copy className="w-3.5 h-3.5 text-slate-500 hover:text-white" />
                 )}
               </button>
+
+              <a
+                href="https://www.linkedin.com/in/dhanya-botla"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-2.5 bg-slate-900 border border-slate-800 rounded-lg hover:border-blue-500 hover:bg-slate-800/50 cursor-pointer transition-all text-xs text-left"
+              >
+                <div className="flex items-center space-x-2">
+                  <Linkedin className="w-4 h-4 text-[#0A66C2]" fill="currentColor" />
+                  <span className="text-slate-300">LinkedIn Profile</span>
+                </div>
+                <span className="text-[10px] text-blue-400 font-mono">Connect ↗</span>
+              </a>
+
+              <a
+                href="https://portfolio-sis-teal.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-2.5 bg-slate-900 border border-slate-800 rounded-lg hover:border-emerald-500 hover:bg-slate-800/50 cursor-pointer transition-all text-xs text-left"
+              >
+                <div className="flex items-center space-x-2">
+                  <Globe className="w-4 h-4 text-[#10B981]" />
+                  <span className="text-slate-300">Portfolio Website</span>
+                </div>
+                <span className="text-[10px] text-emerald-400 font-mono">Visit ↗</span>
+              </a>
             </div>
           </div>
 

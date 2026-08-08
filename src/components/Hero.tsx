@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { MapPin, Mail, Phone, GraduationCap, ArrowRight, ShieldCheck, Layers, FileSpreadsheet, Ruler, Download } from 'lucide-react';
+import { MapPin, Mail, Phone, GraduationCap, ArrowRight, ShieldCheck, Layers, FileSpreadsheet, Ruler, Download, Linkedin, Globe } from 'lucide-react';
 
 interface HeroProps {
   onProjectsClick: () => void;
@@ -123,6 +123,38 @@ export default function Hero({ onProjectsClick, onContactClick, onDownloadCVClic
                   <span className="text-xs font-bold text-[#0F172A]">Aditya University (2023-2027)</span>
                 </div>
               </div>
+
+              <a 
+                href="https://www.linkedin.com/in/dhanya-botla" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2.5 bg-white p-3 rounded-lg border border-[#E2E8F0] shadow-sm hover:border-[#2563EB] hover:bg-[#F8FAFC]/50 transition-colors cursor-pointer" 
+                id="info-badge-linkedin"
+              >
+                <div className="w-8 h-8 rounded bg-[#EFF6FF] flex items-center justify-center text-[#2563EB]">
+                  <Linkedin className="w-4 h-4" fill="currentColor" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider font-mono">LinkedIn Profile</span>
+                  <span className="text-xs font-bold text-[#2563EB] underline break-all">linkedin.com/in/dhanya-botla</span>
+                </div>
+              </a>
+
+              <a 
+                href="https://portfolio-sis-teal.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2.5 bg-white p-3 rounded-lg border border-[#E2E8F0] shadow-sm hover:border-[#2563EB] hover:bg-[#F8FAFC]/50 transition-colors cursor-pointer" 
+                id="info-badge-portfolio"
+              >
+                <div className="w-8 h-8 rounded bg-[#EFF6FF] flex items-center justify-center text-[#2563EB]">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider font-mono">Portfolio Website</span>
+                  <span className="text-xs font-bold text-[#2563EB] underline break-all">portfolio-sis-teal.vercel.app</span>
+                </div>
+              </a>
             </div>
 
             {/* Highlight Badges */}

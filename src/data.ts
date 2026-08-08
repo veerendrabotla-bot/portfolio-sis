@@ -126,7 +126,7 @@ export const timelineData: TimelineEvent[] = [
     title: 'Civil Engineering Intern',
     subtitle: 'Rajahmundry Urban Development Authority (RUDA)',
     institution: 'RUDA Town Planning Office',
-    period: 'June – July (2 Months)',
+    period: 'June – July 2026 (2 Months)',
     description: [
       'Prepared and modified detailed community layout blueprints in AutoCAD.',
       'Reviewed structural and architectural drawings submitted for official municipal approvals.',
