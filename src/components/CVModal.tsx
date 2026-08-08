@@ -211,8 +211,8 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
               <h2 className="text-lg font-bold text-slate-900 border-b border-slate-900 pb-0.5 mb-2 section-divider">
                 Certifications
               </h2>
-              <p className="text-[13.5px] text-slate-800 leading-relaxed">
-                AutoCAD 2026; Revit 2022; ArcGIS Pro; Building Information Modeling (L&T EduTech); Construction Management; Project Management Foundations: Risk.
+              <p className="text-[13.5px] text-slate-800 leading-relaxed text-justify">
+                Building Information Modeling (L&T EduTech, July 30 – Nov 20, 2025); AutoCAD 2026; Revit 2022; ArcGIS Pro; Construction Management; Project Management Foundations: Risk.
               </p>
             </div>
 
